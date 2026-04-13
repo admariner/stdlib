@@ -281,7 +281,7 @@ async function evaluateQuery(source, args, invalidation) {
     }
   }
 
-  // Otherwise, fallback to the basic sql tagged template literal.
+  // Otherwise, fall back to the basic sql tagged template literal.
   if (typeof source.sql === "function") {
     return source.sql.apply(source, args);
   }
@@ -940,8 +940,8 @@ export function inferSchema(source, columns = getAllKeys(source)) {
       }
     }
     // Chose the non-string, non-other type with the greatest count that is also
-    // ≥90%; or if no such type meets that criterion, fallback to string if
-    // ≥90%; and lastly fallback to other.
+    // ≥90%; or if no such type meets that criterion, fall back to string if
+    // ≥90%; and lastly fall back to other.
     const minCount = Math.max(1, colCount.defined * 0.9);
     const type =
       greatest(types, (type) =>
